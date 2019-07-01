@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Home from "./HomeComponent";
 import Menu from "./MenuComponent";
-import DishDetail from "./DishDetailComponent ";
+import DishDetail from "./DishdetailComponent";
 import Contact from "./ContactComponent";
 import AboutUs from "./AboutComponent";
 import Header from "./HeaderComponent";
@@ -19,10 +19,6 @@ const mapStateToProps = state => {
 }
 
 class Main extends Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const HomePage = () => {
@@ -53,7 +49,7 @@ class Main extends Component {
                   <Header />
                  <Switch>
                         <Route path="/home" component={HomePage} />
-                        <Route path="/aboutus" component={() => <About leaders={this.props.leaders} />} />
+                        <Route path="/aboutus" component={() => <AboutUs leaders={this.props.leaders} />} />
                         <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />}/>
                         <Route path="/menu/:dishId" component={DishWithId} />
                         <Route exact path="/contactus" component={Contact} />
@@ -62,6 +58,7 @@ class Main extends Component {
                  <Footer />
             </div>
     );
+}
 }
 
 export default withRouter(connect(mapStateToProps)(Main));
